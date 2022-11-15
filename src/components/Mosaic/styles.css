@@ -1,0 +1,13 @@
+.container_mosaic:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.container_mosaic:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: flex-end;
+}

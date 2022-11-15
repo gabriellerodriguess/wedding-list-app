@@ -1,0 +1,32 @@
+.container_footer {
+    background: #E5E7DD;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.container_footer-text h1 {
+    width: 72px;
+    margin: 0;
+    text-align: end;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.container_footer-date h2 {
+    margin: 0 0 0 6px;
+    color: #4F7302;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.container_info {
+    font-size: 14px;
+    text-align: center;
+    line-height: 0.9;
+    width: 95%;
+    margin: 0 auto;
+}

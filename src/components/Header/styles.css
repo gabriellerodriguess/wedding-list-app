@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Meow+Script&display=swap');
+
+.container_svg {
+    width: 100%;
+}
+
+.container_header {
+    background-image: url('../../assets/images/svgHeader.png');
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.container_header-title {
+    margin: 20px 22px;
+}
+
+.container_header-title a {
+    text-decoration: none;
+    color: #000;
+}
+
+.container_header-title h1 {
+    font-size: 48px;
+    margin: 0;
+    line-height: 0.9;
+}
+
+.container_header-title small {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.container_header-subtitle h2 {
+    font-family: 'Meow Script', sans-serif;
+    font-size: 32px;
+    margin: 20px;
+}
