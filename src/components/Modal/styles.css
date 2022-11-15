@@ -86,7 +86,8 @@
 @media (min-width: 1024px) {
     .modal {
         width: 50%;
-        margin: 10% auto;
+        top: 15%;
+        left: 24%;
     }
 
     .button_close {

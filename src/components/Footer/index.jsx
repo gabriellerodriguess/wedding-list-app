@@ -2,12 +2,11 @@ import './styles.css'
 
 export default function Footer() {
     function createDate() {
-        const today = new Date();
-        const weddingDay = new Date([2022,12,11])
-        const differenceDate = weddingDay - today
-        const dayInMiliseconds = 84600000
-        const resultDate = Math.floor(differenceDate / dayInMiliseconds)
-        return resultDate
+        const today = new Date()
+        const weddingDay = new Date('2022-12-11')
+        const differenceDate = Math.abs(weddingDay.getTime() - today.getTime())
+        const finalDate = Math.ceil(differenceDate / (1000 * 60 * 60 * 24))
+        return finalDate
     }
 
     return (
