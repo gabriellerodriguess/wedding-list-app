@@ -1,16 +1,13 @@
 {
   "files": {
-    "main.css": "/wedding-list-app/static/css/main.073c9b0a.css",
-    "main.js": "/wedding-list-app/static/js/main.f397601d.js",
-    "static/js/787.5053a6a5.chunk.js": "/wedding-list-app/static/js/787.5053a6a5.chunk.js",
-    "static/media/logo.svg": "/wedding-list-app/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/wedding-list-app/static/css/main.91ab3e8d.css",
+    "main.js": "/wedding-list-app/static/js/main.aabfdcc2.js",
     "index.html": "/wedding-list-app/index.html",
-    "main.073c9b0a.css.map": "/wedding-list-app/static/css/main.073c9b0a.css.map",
-    "main.f397601d.js.map": "/wedding-list-app/static/js/main.f397601d.js.map",
-    "787.5053a6a5.chunk.js.map": "/wedding-list-app/static/js/787.5053a6a5.chunk.js.map"
+    "main.91ab3e8d.css.map": "/wedding-list-app/static/css/main.91ab3e8d.css.map",
+    "main.aabfdcc2.js.map": "/wedding-list-app/static/js/main.aabfdcc2.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.f397601d.js"
+    "static/css/main.91ab3e8d.css",
+    "static/js/main.aabfdcc2.js"
   ]
 }
