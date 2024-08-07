@@ -1,7 +1,6 @@
 {
   "name": "wedding-list-app",
   "version": "0.1.0",
-  "homepage": "wedding-list-app/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
