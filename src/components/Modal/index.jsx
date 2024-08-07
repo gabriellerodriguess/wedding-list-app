@@ -5,8 +5,10 @@ import './styles.css'
 
 export default function Modal(props) {
     const [guest, setGuest] = useState('')
-    
+    const [loading, setLoading] = useState(false)
+
     function updateData() {
+        setLoading(true)
         if(guest === '') {
             alert('Insira um nome.')
             return
@@ -14,6 +16,7 @@ export default function Modal(props) {
 
         api.put(`items/${props.item.id}`, {guest}).then(response => {
             if(response.data.error) {
+                setLoading(false)
                 alert('Desculpe, tente novamente.')
                 return
             } 
@@ -42,7 +45,14 @@ export default function Modal(props) {
                     <p className="text_default">O presente escolhido foi:</p>
                     <span className="text_default">{props.item.name}</span>
                 </div>
-                <button type="submit" className="button_modal" onClick={() => {updateData() }}>
+                <button 
+                    type="submit" 
+                    className="button_modal"
+                    disabled={loading}
+                    onClick={() => {
+                        updateData()
+                    }
+                }>
                     Confirmar Presente
                 </button>
             </div>

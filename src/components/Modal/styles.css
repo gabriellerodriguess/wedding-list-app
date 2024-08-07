@@ -32,9 +32,9 @@
     align-items: center;
     justify-content: center;
     background-color: #D9D9D9;
-    position: a;
     margin: 0;
     padding: 0;
+    cursor: pointer;
 }
 
 .modal h3 {
@@ -63,7 +63,7 @@
 }
 
 .text_default {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     text-align: center;
     margin: 0;
@@ -74,13 +74,19 @@
 }
 
 .button_modal {
-    background-color: #4F7302;
+    background-color: #006DB2;
     padding: 12px;
     border: none;
     border-radius: 10px;
     color: #fff;
     font-weight: bold;
     font-size: 14px;
+    cursor: pointer;
+}
+
+.button_modal:disabled {
+    opacity: .6;
+    pointer-events: none;
 }
 
 @media (min-width: 1024px) {
