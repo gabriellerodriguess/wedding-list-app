@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Meow+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
 
 .container_svg {
     width: 100%;
 }
 
 .container_header {
-    background-image: url('../../assets/images/svgHeader.png');
+    background-image: url('../../assets/images/waveHeader.png');
     background-size: 100% 100%;
     display: flex;
     align-items: center;
@@ -34,7 +35,9 @@
 }
 
 .container_header-subtitle h2 {
-    font-family: 'Meow Script', sans-serif;
+    font-family: "Parisienne", cursive;
     font-size: 32px;
     margin: 20px;
+    text-align: center;
+    line-height: 24px;
 }

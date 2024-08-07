@@ -1,5 +1,5 @@
 .container_footer {
-    background: #E5E7DD;
+    background: #E4F3FB;
     margin: 10px;
     border-radius: 10px;
     display: flex;
@@ -18,7 +18,8 @@
 
 .container_footer-date h2 {
     margin: 0 0 0 6px;
-    color: #4F7302;
+    /* color: #4F7302; */
+    color: #006DB2;
     font-size: 48px;
     font-weight: bold;
 }

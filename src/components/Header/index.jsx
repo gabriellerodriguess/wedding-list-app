@@ -19,7 +19,7 @@ export default function Header() {
                 </div>
 
                 <div className='container_header-subtitle'>
-                    <h2>Gabi e Otávio</h2>
+                    <h2>Bhira <br/>e <br/> Natasha</h2>
                 </div>             
 
             </div>
