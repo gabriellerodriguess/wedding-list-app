@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card-gift-container {
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.card-gift-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  row-gap: 16px;
+}
+
+.card-gift {
+  padding: 4px 12px;
+  background-color:  #b0cddf;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.card-gift p {
+  font-size: 18px;
+  font-weight: 500;
+} 
+
+.card-gift span {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.card-gift:nth-child(even) {
+  transform: rotate(-2.5deg);
+}
+
+.card-gift:nth-child(odd) {
+  transform: rotate(2.5deg);
+}
