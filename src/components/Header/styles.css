@@ -12,7 +12,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 101%;
+    margin-left: -1px;
     height: 122px;
 }
 

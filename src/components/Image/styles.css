@@ -26,10 +26,15 @@
     margin: 10px 0;
     font-size: 14px;
     font-weight: 700;
+    text-align: center;
 }
 
 .container_image img {
     border-radius: 10px;
+}
+
+.content_images {
+   width: 100%;
 }
 
 @media (min-width: 1024px) {
