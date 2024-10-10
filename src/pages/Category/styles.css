@@ -1,0 +1,14 @@
+.back-to-home {
+  display: flex;
+  justify-content: center;
+  margin: 24px auto;
+  text-decoration: none;
+}
+
+.back-to-home p {
+  font-size: 14px;
+  color: #191919;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #191919;
+}

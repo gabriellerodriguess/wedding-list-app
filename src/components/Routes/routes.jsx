@@ -2,7 +2,7 @@ import React from 'react'
 import { Routes as RoutesPages, Route, BrowserRouter } from 'react-router-dom'
 import Home from '../../pages/Home'
 import Category from '../../pages/Category'
-import List from '../../pages/List'
+import GiftList from '../../pages/GiftList' 
 
 export default function Routes() {
     function composeBaseName(){
@@ -15,7 +15,7 @@ export default function Routes() {
             <RoutesPages>
                 <Route path='/' element={<Home /> }/>
                 <Route path='/category/:id' element={<Category /> }/>
-                <Route path='/all-list' element={ <List /> }/>
+                <Route path='/gift-list' element={ <GiftList /> }/>
             </RoutesPages>
         </BrowserRouter>
     )

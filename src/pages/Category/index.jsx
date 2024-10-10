@@ -1,11 +1,12 @@
 import { React, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { api } from '../../services/api'
 import Image from '../../components/Image'
 import List from '../../components/List'
 import Modal from '../../components/Modal'
 import Layout from '../../components/Layout'
 import Loading from '../../components/Loading'
+import { FaAngleLeft } from 'react-icons/fa'
 import './styles.css'
 
 export default function Category() {
@@ -25,7 +26,7 @@ export default function Category() {
         }
         getCategory()
     }, [])
-    
+
     function getItems() {
         setLoading(true)
         setItems(null)
@@ -42,27 +43,35 @@ export default function Category() {
 
     function handleModal(item) {
         setShowModal(!showModal)
-        
-        if(item) {
-           return setItem(item)
+
+        if (item) {
+            return setItem(item)
         }
     }
 
     return (
-        <Layout>
-            {loading && <Loading type={'category'}/>}
-            {!loading &&    
-                <div>
-                    {category &&
-                        <>
-                            <Image urlImage={category.urlImage} name={category.name} alt={category.name} size='lg'/>
-                            <List items={items}  dispatch={(item) => handleModal(item)}/>
-                        </>
-                    }
-                    {showModal &&
-                        <Modal item={item} onSuccess={() => getItems()} dispatch={() => handleModal()}/>
-                    }
-                </div>        
+        <Layout showFooter={true}>
+            {loading && <Loading type={'category'} />}
+            {!loading &&
+                <>
+                    <div>
+                        {category &&
+                            <>
+                                <Image urlImage={category.urlImage} name={category.name} alt={category.name} size='lg' />
+                                <List items={items} dispatch={(item) => handleModal(item)} />
+                            </>
+                        }
+                        {showModal &&
+                            <Modal item={item} onSuccess={() => getItems()} dispatch={() => handleModal()} />
+                        }
+                    </div>
+                    <Link to="/" className="back-to-home">
+                        <p> 
+                        <FaAngleLeft size={14}/>
+                            voltar
+                        </p>
+                    </Link>
+                </>
             }
         </Layout>
     )

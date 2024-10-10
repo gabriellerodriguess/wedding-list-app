@@ -1,11 +1,11 @@
 import React from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import './styles.css'
 
 export default function Header() {
     const navigate = useNavigate()
 
-    function backToHome(){
+    function backToHome() {
         navigate('/')
     }
 
@@ -13,14 +13,14 @@ export default function Header() {
         <header>
             <div className='container_header'>
                 <div className='container_header-title'>
-                    <a href="" onClick={() => backToHome()}>
+                    <Link to="/" className="header-link">
                         <h1>Lista</h1> <small>de presentes</small>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className='container_header-subtitle'>
-                    <h2>Bhira <br/>e <br/> Natasha</h2>
-                </div>             
+                    <h2>Franklin <br />e <br /> Géssica</h2>
+                </div>
 
             </div>
 

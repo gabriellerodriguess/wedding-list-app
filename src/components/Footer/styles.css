@@ -18,8 +18,7 @@
 
 .container_footer-date h2 {
     margin: 0 0 0 6px;
-    /* color: #4F7302; */
-    color: #006DB2;
+    color: #252525;
     font-size: 48px;
     font-weight: bold;
 }
@@ -30,5 +29,10 @@
     line-height: 0.9;
     width: 95%;
     margin: 0 auto;
-    padding-bottom: 24px;
+    padding-bottom: 16px;
+}
+
+.container_info p {
+    margin-bottom: 8px;
+    line-height: normal;
 }
