@@ -1,12 +1,12 @@
 import { React, useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { api } from '../../services/api'
 import Image from '../../components/Image'
 import List from '../../components/List'
 import Modal from '../../components/Modal'
 import Layout from '../../components/Layout'
 import Loading from '../../components/Loading'
-import { FaAngleLeft } from 'react-icons/fa'
+import BtnBackToHome from '../../components/BtnBackToHome'
 import './styles.css'
 
 export default function Category() {
@@ -65,12 +65,7 @@ export default function Category() {
                             <Modal item={item} onSuccess={() => getItems()} dispatch={() => handleModal()} />
                         }
                     </div>
-                    <Link to="/" className="back-to-home">
-                        <p> 
-                        <FaAngleLeft size={14}/>
-                            voltar
-                        </p>
-                    </Link>
+                    <BtnBackToHome />
                 </>
             }
         </Layout>

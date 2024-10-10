@@ -9,7 +9,6 @@ export default function Layout(props) {
       <div className='container_routes'>
         {props.children}
       </div>
-
       {
         props.showFooter &&
         <Footer />

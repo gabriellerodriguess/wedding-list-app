@@ -47,3 +47,10 @@
 .card-gift:nth-child(odd) {
   transform: rotate(2.5deg);
 }
+
+.card-gift-unavailable {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
