@@ -57,7 +57,7 @@ export default function Category() {
                     <div>
                         {category &&
                             <>
-                                <Image urlImage={category.urlImage} name={category.name} alt={category.name} size='lg' />
+                                <Image isCategory={"category"} urlImage={category.urlImage} name={category.name} alt={category.name} size='lg' />
                                 <List items={items} dispatch={(item) => handleModal(item)} />
                             </>
                         }

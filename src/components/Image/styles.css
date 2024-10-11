@@ -65,7 +65,7 @@
 }
 
 @media(max-width: 375px) {
-    .container_image img {
+    .container_image img:not(.image_category) {
         max-width: 160px;
     }
 }
