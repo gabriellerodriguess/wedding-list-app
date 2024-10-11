@@ -44,7 +44,7 @@ export default function Modal(props) {
                     </div>
                     <div className="description">
                         <p className="text_default">O presente escolhido foi:</p>
-                        <span className="text_default">{props.item.name}</span>
+                        <span className="text_default notranslate" translate="no">{props.item.name}</span>
                     </div>
                     <button
                         type="submit"

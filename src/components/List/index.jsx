@@ -8,7 +8,7 @@ export default function List(props) {
                 props.items.map((item,index) => (
                     <li key={index} className={`list_element item-${item.active ? 'enabled' : 'disabled'}`} onClick={() => props.dispatch(item)}>
                         <button className="list_button"></button> 
-                        <span className="list_item">{item.name}</span>
+                        <span translate="no" className="notranslate list_item">{item.name}</span>
                     </li>
                 ))}
         </ul>
