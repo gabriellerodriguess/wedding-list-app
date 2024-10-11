@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 101%;
+    width: 102%;
     margin-left: -1px;
     margin-top: -1px;
     height: 122px;
@@ -50,5 +50,19 @@
 @media (min-width: 768px) {
     .container_header {
         background-image: url('../../assets/images/Vector9.svg');
+    }
+}
+
+@media(max-width: 360px) {
+    .container_header-subtitle h2 {
+        margin-top: 8px;
+    }
+    
+    .container_header-title h1 {
+        font-size: 40px;
+    }
+
+    .container_header-title small {
+        font-size: 15px;
     }
 }

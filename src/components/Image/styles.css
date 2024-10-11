@@ -63,3 +63,9 @@
         height: 250px;
     }
 }
+
+@media(max-width: 375px) {
+    .container_image img {
+        max-width: 160px;
+    }
+}
