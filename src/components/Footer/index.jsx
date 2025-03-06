@@ -12,8 +12,8 @@ export default function Footer() {
     return (
         <footer>
             <div className='container_info'>
-                <p>O evento será no dia <strong>30/11/2024</strong> às <strong>17:00h</strong></p>
-                <p>No endereço: <strong> Residencial Ventura, QS 102 conjunto 02 | Samambaia Sul </strong></p>
+                <p>O evento será no dia <strong>19/04/2025</strong> às <strong>16:00h</strong></p>
+                <p>No endereço: <strong> Sevilha Casa de Festas</strong></p>
             </div>
             {/* <div className='container_footer'>
                 <div className='container_footer-text'>

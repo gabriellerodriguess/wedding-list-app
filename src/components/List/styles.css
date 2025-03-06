@@ -8,7 +8,7 @@
 .list_element {
     display: flex;
     align-items: center;
-    background-color: rgba(217,217,217,13%);
+    background-color: #faf0ec;
     font-weight: bold;
     font-size: 14px;
     margin: 10px;
@@ -16,6 +16,10 @@
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.list_element span {
+    color: #353535;
 }
 
 .item-enabled {
@@ -27,7 +31,7 @@
 }
 
 .item-enabled .list_button {
-    background-color: black;
+    background-color: #353535;
 }
 
 .list_button {
