@@ -7,7 +7,7 @@
 
 .container_header {
     background-image: url('../../assets/images/Vector8.svg');
-    background-size: 105%;
+    background-size: 100%;
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
