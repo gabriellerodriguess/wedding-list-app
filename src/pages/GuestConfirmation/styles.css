@@ -9,7 +9,6 @@
 }
 
 .formConfirmation input:not([type="radio"]) {
-  width: 100%;
   height: 32px;
   font-size: 16px;
   border-radius: 4px;
@@ -19,7 +18,6 @@
 
 .inputsConfirmation {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
 }
 
@@ -34,7 +32,6 @@
 
 .guestsQuantity {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -46,4 +43,15 @@
   margin-top: 16px;
   font-size: 18px;
   text-align: center;
+}
+
+@media(max-width: 1024px) {
+  .guestsQuantity, 
+  .inputsConfirmation {
+    justify-content: space-between;
+  }
+
+  .formConfirmation input:not([type="radio"]) {
+    width: 100%;
+  }
 }
