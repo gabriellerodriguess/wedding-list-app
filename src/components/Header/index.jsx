@@ -15,7 +15,7 @@ export default function Header({
         <header>
             <div className='container_header'>
                 <div className='container_header-title'>
-                    <Link to="/" className="header-link">
+                    <Link to={isConfirmationPage ? '/confirmation' : '/'} className="header-link">
                         {
                             isConfirmationPage ?
                                 <>
