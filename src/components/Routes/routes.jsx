@@ -3,6 +3,7 @@ import { Routes as RoutesPages, Route, BrowserRouter } from 'react-router-dom'
 import Home from '../../pages/Home'
 import Category from '../../pages/Category'
 import GiftList from '../../pages/GiftList' 
+import GuestConfirmation from '../../pages/GuestConfirmation'
 
 export default function Routes() {
     function composeBaseName(){
@@ -16,6 +17,7 @@ export default function Routes() {
                 <Route path='/' element={<Home /> }/>
                 <Route path='/category/:id' element={<Category /> }/>
                 <Route path='/gift-list' element={ <GiftList /> }/>
+                <Route path='/confirmation' element={ <GuestConfirmation />}/>
             </RoutesPages>
         </BrowserRouter>
     )

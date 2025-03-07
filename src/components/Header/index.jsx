@@ -2,7 +2,9 @@ import React from "react"
 import { useNavigate, Link } from "react-router-dom"
 import './styles.css'
 
-export default function Header() {
+export default function Header({
+    isConfirmationPage
+}) {
     const navigate = useNavigate()
 
     function backToHome() {
@@ -14,7 +16,18 @@ export default function Header() {
             <div className='container_header'>
                 <div className='container_header-title'>
                     <Link to="/" className="header-link">
-                        <h1>Lista</h1> <small>de presentes</small>
+                        {
+                            isConfirmationPage ?
+                                <>
+                                    <h2>Confirmação</h2>
+                                    <small>de presença</small>
+                                </>
+                                :
+                                <>
+                                    <h1>Lista</h1>
+                                    <small>de presentes</small>
+                                </>
+                        }
                     </Link>
                 </div>
 

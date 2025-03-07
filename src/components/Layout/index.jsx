@@ -5,7 +5,7 @@ import Footer from '../Footer'
 export default function Layout(props) {
   return (
     <>
-      <Header />
+      <Header isConfirmationPage={props.isConfirmationPage}/>
       <div className='container_routes'>
         {props.children}
       </div>

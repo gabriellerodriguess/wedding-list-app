@@ -16,6 +16,7 @@ export default function Modal(props) {
         }
 
         api.put(`items/${props.item.id}`, { guest }).then(response => {
+            console.log(response, 'response')
             if (response.data.error) {
                 setLoading(false)
                 alert('Desculpe, tente novamente.')
