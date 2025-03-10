@@ -10,14 +10,14 @@ export default function GiftList() {
   const [categories, setCategories] = useState([]);
 
   function getCategories() {
-    api.get('categories').then((response) => {
+    api.get('/categories').then((response) => {
       setCategories(response.data);
     });
   }
 
   function getItems() {
     categories.forEach((category) => {
-      api.get(`items?category=${category.id}`).then((response) => {
+      api.get(`/items?category=${category.id}`).then((response) => {
         if (!response.data) return;
 
         const filterGuests = response.data.filter((gift) => gift.guest !== null);

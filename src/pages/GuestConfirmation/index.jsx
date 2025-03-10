@@ -142,7 +142,7 @@ const GuestConfirmation = () => {
                 </select>
               </div>
               <div className='guestsQuantity'>
-                <label htmlFor="children">Quantidade de crianças <span>(acima de 7 anos)</span>:</label>
+                <label htmlFor="children">Quantidade de crianças: <span>(acima de 7 anos)</span></label>
                 <select
                   id="children"
                   name='children'

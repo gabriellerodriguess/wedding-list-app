@@ -35,6 +35,10 @@
   align-items: center;
 }
 
+.guestsQuantity span {
+  font-size: .75rem;
+}
+
 .contentFormConfirmation button {
   margin-top: 32px;
 }

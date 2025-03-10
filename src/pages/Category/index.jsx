@@ -21,7 +21,7 @@ export default function Category() {
 
     useEffect(() => {
         async function getCategory() {
-            const responseCategory = await api.get(`categories/${idCategory}`)
+            const responseCategory = await api.get(`/categories/${idCategory}`)
             setCategory(responseCategory.data)
         }
         getCategory()
@@ -30,8 +30,7 @@ export default function Category() {
     function getItems() {
         setLoading(true)
         setItems(null)
-        api.get(`items?categoryId=${idCategory}`).then(response => {
-            console.log(response.data)
+        api.get(`/items?categoryId=${idCategory}`).then(response => {
             setItems(response.data)
             setLoading(false)
         })

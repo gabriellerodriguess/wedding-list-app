@@ -1,4 +1,4 @@
-import { React, useState } from "react"
+import React, { useState } from "react"
 import SvgComponentClose from '../../assets/SvgComponentClose'
 import { FaSpinner } from "react-icons/fa"
 import { api } from '../../services/api'
@@ -16,7 +16,6 @@ export default function Modal(props) {
         }
 
         api.put(`items/${props.item.id}`, { guest }).then(response => {
-            console.log(response, 'response')
             if (response.data.error) {
                 setLoading(false)
                 alert('Desculpe, tente novamente.')
@@ -30,7 +29,7 @@ export default function Modal(props) {
     return (
         <>
             <div className="modal_container">
-                <div className="modal">
+                <div className="modal_confirmation">
                     <button className="button_close" onClick={() => props.dispatch()}>
                         <SvgComponentClose />
                     </button>
