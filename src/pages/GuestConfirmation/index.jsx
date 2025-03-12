@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Layout from '../../components/Layout'
 import InputMask from 'react-input-mask'
+import { FaSpinner } from "react-icons/fa"
 import { api } from '../../services/api'
 import './styles.css'
 
@@ -14,6 +15,7 @@ const GuestConfirmation = () => {
     children: 0
   });
   const [success, setSuccess] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -42,6 +44,7 @@ const GuestConfirmation = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setLoading(true)
 
     if (formData.name === '') {
       alert('Por favor, insira seu nome e tente novamente.');
@@ -63,6 +66,7 @@ const GuestConfirmation = () => {
     api.post('/guests', { ...formData }).then(response => {
       if (response.status === 200) {
         setSuccess(true)
+        setLoading(false)
         setFormData({
           name: '',
           phone: '',
@@ -163,7 +167,16 @@ const GuestConfirmation = () => {
                   <option value="10">10</option>
                 </select>
               </div>
-              <button className='button_modal' type='submit'>Confirmar presença</button>
+              <button disabled={loading} className='button_modal' type='submit'>
+                {loading ?
+                  <div className="loading-icon">
+                    <FaSpinner className="spinner" size={12} />
+                  </div> :
+                  <>
+                    Confirmar presença
+                  </>
+                }
+              </button>
             </form>
             :
             <div className='successMsg'>
