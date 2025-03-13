@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Layout from '../../components/Layout'
 import { api } from '../../services/api';
 import { FaPhoneAlt } from "react-icons/fa";
-import { FaChildren } from "react-icons/fa6";
-import { FaPerson } from "react-icons/fa6";
+import { FaChildren, FaPerson} from "react-icons/fa6";
 import './styles.css'
 
 const GuestList = () => {

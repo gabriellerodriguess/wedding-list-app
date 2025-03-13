@@ -49,6 +49,24 @@
   text-align: center;
 }
 
+.backToForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backToForm p {
+  text-decoration: underline;
+  color: #353535;
+  margin: 16px 0 0 0;
+  font-size: 14px;
+}
+
+.modal_confirmation h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
 @media(max-width: 1024px) {
   .guestsQuantity, 
   .inputsConfirmation {

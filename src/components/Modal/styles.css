@@ -17,7 +17,8 @@
     flex-direction: column;
     justify-content: space-evenly;
     border-radius: 10px;
-    height: 350px;
+    height: auto;
+    min-height: 350px;
     position: fixed;
     top: 15%;
 }

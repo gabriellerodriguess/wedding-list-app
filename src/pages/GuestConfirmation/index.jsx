@@ -3,6 +3,9 @@ import Layout from '../../components/Layout'
 import InputMask from 'react-input-mask'
 import { FaSpinner } from "react-icons/fa"
 import { api } from '../../services/api'
+import { FaPhoneAlt } from "react-icons/fa"
+import { FaChildren, FaPerson } from "react-icons/fa6"
+import SvgComponentClose from '../../assets/SvgComponentClose'
 import './styles.css'
 
 const GuestConfirmation = () => {
@@ -11,11 +14,12 @@ const GuestConfirmation = () => {
     phone: '',
     on: true,
     off: false,
-    adult: 0,
+    adult: 1,
     children: 0
   });
   const [success, setSuccess] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [openModal, setOpenModal] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -67,6 +71,7 @@ const GuestConfirmation = () => {
       if (response.status === 200) {
         setSuccess(true)
         setLoading(false)
+        setOpenModal(false)
         setFormData({
           name: '',
           phone: '',
@@ -79,12 +84,17 @@ const GuestConfirmation = () => {
     })
   }
 
+  const handleModal = (e) => {
+    e.preventDefault()
+    setOpenModal(!openModal)
+  }
+
   return (
     <Layout isConfirmationPage={true}>
       <div className='contentFormConfirmation'>
         {
           !success ?
-            <form onSubmit={(e) => handleSubmit(e)} className='formConfirmation'>
+            <form onSubmit={(e) => handleModal(e)} className='formConfirmation'>
               <div>
                 <label htmlFor="name">Nome</label>
                 <input type='text' name='name' id="name" placeholder='Insira seu nome' value={formData.name} onChange={handleChange} />
@@ -132,7 +142,6 @@ const GuestConfirmation = () => {
                   onChange={handleChange}
                   className='form-select w-auto'
                 >
-                  <option value="">0</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -168,14 +177,7 @@ const GuestConfirmation = () => {
                 </select>
               </div>
               <button disabled={loading} className='button_modal' type='submit'>
-                {loading ?
-                  <div className="loading-icon">
-                    <FaSpinner className="spinner" size={12} />
-                  </div> :
-                  <>
-                    Confirmar presença
-                  </>
-                }
+                Confirmar presença
               </button>
             </form>
             :
@@ -186,6 +188,47 @@ const GuestConfirmation = () => {
             </div>
         }
       </div>
+      {
+        openModal &&
+        <div className="modal_container">
+          <div className="modal_confirmation">
+            <h3>
+              Confira os dados antes de enviar:
+            </h3>
+            <button className="button_close" onClick={(e) => handleModal(e)}>
+              <SvgComponentClose />
+            </button>
+            <div className='guestContent'>
+              <p>{formData.name}</p>
+              <span>
+                <FaPhoneAlt />
+                {formData.phone}
+              </span>
+              <span>
+                <FaPerson />
+                Adultos: {formData.adult}
+              </span>
+              <span>
+                <FaChildren />
+                Crianças: {formData.children}
+              </span>
+            </div>
+            <button disabled={loading} className='button_modal' type='submit' onClick={(e) => handleSubmit(e)}>
+              {loading ?
+                <div className="loading-icon">
+                  <FaSpinner className="spinner" size={12} />
+                </div> :
+                <>
+                  Confirmar
+                </>
+              }
+            </button>
+            <div className='backToForm' onClick={(e) => handleModal(e)}>
+              <p>Voltar</p>
+            </div>
+          </div>
+        </div>
+      }
     </Layout>
   )
 }
