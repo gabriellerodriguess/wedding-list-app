@@ -39,7 +39,7 @@ const GuestList = () => {
   }, [guests])
 
   return (
-    <Layout isConfirmationPage={true}>
+    <Layout isConfirmationPage={true} maintenance={false}>
       <div className='guestsContainer'>
         <p className='allConfirmed'>
          Total de adultos confirmados: <strong>{adultsOn}</strong>

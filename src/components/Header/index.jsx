@@ -32,7 +32,7 @@ export default function Header({
                 </div>
 
                 <div className='container_header-subtitle'>
-                    <h2>Victória <br />e <br /> Samuel</h2>
+                    <h2> Chá do<br /> Isaac </h2>
                 </div>
             </div>
 

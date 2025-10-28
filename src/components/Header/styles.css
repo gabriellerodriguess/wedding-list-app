@@ -16,6 +16,21 @@
     margin-left: -1px;
     margin-top: -1px;
     height: 122px;
+    position: relative;
+}
+
+.container_header::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-image: url('../../assets/images/pooh-and-tiger.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: 0;
+    right: 32%;
 }
 
 .container_header-title {
@@ -24,7 +39,7 @@
 
 .container_header-title a {
     text-decoration: none;
-    color: #FFF;
+    color: #76501a;
 }
 
 .container_header-title h1 {
@@ -34,7 +49,7 @@
 }
 
 .container_header-title h2 {
-    font-size: 32px;
+    font-size: 28px;
     margin: 0;
     line-height: 0.9;
 }
@@ -49,8 +64,8 @@
     font-size: 30px;
     margin: 30px;
     text-align: center;
-    line-height: 24px;
-    color: #FFF;
+    line-height: 36px;
+    color: #76501a;
 }
 
 @media (min-width: 768px) {
@@ -63,7 +78,7 @@
     .container_header-subtitle h2 {
         margin-top: 8px;
     }
-    
+
     .container_header-title h1 {
         font-size: 40px;
     }

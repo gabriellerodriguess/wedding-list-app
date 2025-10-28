@@ -49,7 +49,7 @@ export default function Category() {
     }
 
     return (
-        <Layout showFooter={true}>
+        <Layout showFooter={true} maintenance={true}>
             {loading && <Loading type={'category'} />}
             {!loading &&
                 <>
