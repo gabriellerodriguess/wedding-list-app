@@ -66,6 +66,7 @@
     text-align: center;
     line-height: 36px;
     color: #76501a;
+    font-weight: 800;
 }
 
 @media (min-width: 768px) {
