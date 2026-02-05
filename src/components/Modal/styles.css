@@ -88,6 +88,16 @@
     cursor: pointer;
 }
 
+.button_modal.event_id--sara {
+    background: #13099F;
+    color: #ffd700;
+}
+
+.button_modal.event_id--hellena {
+    background: #FFB5C0;
+    color: #5F3C0A;
+}
+
 .button_modal:disabled {
     pointer-events: none;
 }

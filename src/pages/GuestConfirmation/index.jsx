@@ -7,6 +7,7 @@ import { FaPhoneAlt } from "react-icons/fa"
 import { FaChildren, FaPerson } from "react-icons/fa6"
 import SvgComponentClose from '../../assets/SvgComponentClose'
 import ToastMessage from '../../components/ToastMessage'
+import { urlParamsFormatted } from '../../utils/searchParams'
 import './styles.css'
 
 const GuestConfirmation = () => {
@@ -70,11 +71,16 @@ const GuestConfirmation = () => {
     setOpenModal(true);
   };
 
+  console.log(urlParamsFormatted, 'urlParamsFormatted')
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
 
-    api.post('/guests', { ...formData })
+    api.post('/guests', {
+      ...formData,
+      event_id: urlParamsFormatted
+    })
       .then(response => {
         if (response.status === 200) {
           setSuccess(true);
@@ -86,7 +92,7 @@ const GuestConfirmation = () => {
             on: true,
             off: false,
             adult: 1,
-            children: 0
+            children: 0,
           });
           setToast({ text: 'Confirmação enviada com sucesso!', status: 'success' });
         }
@@ -109,7 +115,7 @@ const GuestConfirmation = () => {
   };
 
   return (
-    <Layout isConfirmationPage={true} maintenance={false}>
+    <Layout isConfirmationPage={true} maintenance={false} event={urlParamsFormatted}>
       <div className='contentFormConfirmation'>
         {
           !success ? (
@@ -204,7 +210,8 @@ const GuestConfirmation = () => {
                   <option value="10">10</option>
                 </select>
               </div>
-              <button disabled={loading} className='button_modal' type='submit'>
+              <button disabled={loading} c className={`button_modal event_id--${urlParamsFormatted}`}
+                type='submit'>
                 Confirmar presença
               </button>
             </form>
@@ -231,7 +238,7 @@ const GuestConfirmation = () => {
             </div>
             <button
               disabled={loading}
-              className='button_modal'
+              className={`button_modal event_id--${urlParamsFormatted}`}
               type='submit'
               onClick={handleSubmit}
             >

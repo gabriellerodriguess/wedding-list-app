@@ -3,7 +3,8 @@ import { useNavigate, Link } from "react-router-dom"
 import './styles.css'
 
 export default function Header({
-    isConfirmationPage
+    isConfirmationPage,
+    event
 }) {
     const navigate = useNavigate()
 
@@ -11,8 +12,31 @@ export default function Header({
         navigate('/')
     }
 
+    const EVENT_CONFIG = {
+        hellena: {
+            prefix: 'Chá da',
+            name: 'Hellena',
+        },
+        sara: {
+            prefix: '15 anos da',
+            name: 'Sara',
+        },
+        isaac: {
+            prefix: 'Chá do',
+            name: 'Isaac',
+        },
+    }
+
+    function handleSubtitle(event) {
+        return EVENT_CONFIG[event] || null
+    }
+
+    const subtitle = handleSubtitle(event)
+
+    console.log(subtitle, event, 'subtitle')
+
     return (
-        <header>
+        <header data-event-id={event}>
             <div className='container_header'>
                 <div className='container_header-title'>
                     <Link to={isConfirmationPage ? '/confirmation' : '/'} className="header-link">
@@ -25,14 +49,20 @@ export default function Header({
                                 :
                                 <>
                                     <h1>Lista</h1>
-                                    <small>de presentes</small>
+                                    <small>de convidados</small>
                                 </>
                         }
                     </Link>
                 </div>
 
                 <div className='container_header-subtitle'>
-                    <h2> Chá do<br /> Isaac </h2>
+                    {subtitle && (
+                        <h2>
+                            {subtitle.prefix}
+                            <br />
+                            {subtitle.name}
+                        </h2>
+                    )}
                 </div>
             </div>
 

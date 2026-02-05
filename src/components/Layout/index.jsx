@@ -15,7 +15,7 @@ export default function Layout(props) {
   }
   return (
     <>
-      <Header isConfirmationPage={props.isConfirmationPage} />
+      <Header event={props.event} isConfirmationPage={props.isConfirmationPage} />
       <div className='container_routes'>
         {props.children}
       </div >

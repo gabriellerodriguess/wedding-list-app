@@ -1,12 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Meow+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap');
 
 .container_svg {
     width: 100%;
 }
 
+header[data-event-id="hellena"] .container_header {
+    background-image: url('/public/images/header-hellena.svg');
+    background-size: auto;
+}
+
+header[data-event-id="sara"] .container_header {
+    background-image: url('/public/images/header-sara.svg');
+    background-size: auto;
+}
+
 .container_header {
-    background-image: url('../../assets/images/Vector8.svg');
     background-size: 100%;
     background-repeat: no-repeat;
     display: flex;
@@ -19,12 +29,42 @@
     position: relative;
 }
 
+header[data-event-id="hellena"] .container_header::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-image: url('/public/images/bird.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: -17px;
+    right: 35%;
+}
+
+header[data-event-id="sara"] .container_header::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 80px;
+    background-image: url('/public/images/rosa1.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+}
+
+
 .container_header::after {
     content: '';
     display: block;
     width: 100px;
     height: 100px;
-    background-image: url('../../assets/images/pooh-and-tiger.png');
+    /* background-image: url('../../assets/images/pooh-and-tiger.png'); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -33,13 +73,71 @@
     right: 32%;
 }
 
+
 .container_header-title {
     margin: 0 0 20px 22px;
 }
 
 .container_header-title a {
     text-decoration: none;
-    color: #76501a;
+    color: #5F3C0A;
+}
+
+header[data-event-id="sara"] .container_header a {
+    background: linear-gradient(90deg,
+            #b8860b,
+            /* dourado escuro */
+            #ffd700,
+            /* amarelo ouro */
+            #fff2a8,
+            /* brilho */
+            #ffd700,
+            #b8860b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+
+header[data-event-id="sara"] .container_header h2 {
+  font-family: "Playwrite NZ Basic", cursive;
+    font-size: 28px;
+    text-align: center;
+    line-height: 36px;
+    background: linear-gradient(90deg,
+            #b8860b,
+            /* dourado escuro */
+            #ffd700,
+            /* amarelo ouro */
+            #fff2a8,
+            /* brilho */
+            #ffd700,
+            #b8860b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-weight: 600;
+}
+
+header[data-event-id="sara"] .container_header h1 {
+    background: linear-gradient(90deg,
+            #b8860b,
+            /* dourado escuro */
+            #ffd700,
+            /* amarelo ouro */
+            #fff2a8,
+            /* brilho */
+            #ffd700,
+            #b8860b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-size: 48px;
+    margin: 0;
+    line-height: 0.9;
 }
 
 .container_header-title h1 {
@@ -65,7 +163,7 @@
     margin: 30px;
     text-align: center;
     line-height: 36px;
-    color: #76501a;
+    color: #5F3C0A;
     font-weight: 800;
 }
 
