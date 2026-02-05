@@ -71,8 +71,6 @@ const GuestConfirmation = () => {
     setOpenModal(true);
   };
 
-  console.log(urlParamsFormatted, 'urlParamsFormatted')
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);

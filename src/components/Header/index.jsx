@@ -33,8 +33,6 @@ export default function Header({
 
     const subtitle = handleSubtitle(event)
 
-    console.log(subtitle, event, 'subtitle')
-
     return (
         <header data-event-id={event}>
             <div className='container_header'>

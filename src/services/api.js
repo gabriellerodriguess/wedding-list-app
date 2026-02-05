@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const api = axios.create({
-    // baseURL: 'https://api.weddinglist.com.br',
-    baseURL: 'http://localhost:4040'
+    baseURL: 'https://api.weddinglist.com.br',
+    // baseURL: 'http://localhost:4040'
 })
