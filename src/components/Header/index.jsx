@@ -25,6 +25,10 @@ export default function Header({
             prefix: 'Chá do',
             name: 'Isaac',
         },
+        heitor: {
+            prefix: '1 aninho do',
+            name: 'Heitor',
+        },
     }
 
     function handleSubtitle(event) {

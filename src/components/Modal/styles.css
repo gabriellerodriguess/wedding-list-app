@@ -98,6 +98,19 @@
     color: #5F3C0A;
 }
 
+.button_modal.event_id--heitor {
+    background: linear-gradient(
+        90deg,
+        #D00200 0%,
+        #B00000 15%,
+        #6A0100 30%,
+        #6A0100 70%,
+        #B00000 85%,
+        #D00200 100%
+    );
+    color: #EEE703;
+}
+
 .button_modal:disabled {
     pointer-events: none;
 }
