@@ -39,11 +39,8 @@
   font-size: .75rem;
 }
 
-.contentFormConfirmation button {
-  margin-top: 32px;
-}
-
-.successMsg {
+.successMsg,
+.warningMsg {
   margin-top: 16px;
   font-size: 18px;
   text-align: center;

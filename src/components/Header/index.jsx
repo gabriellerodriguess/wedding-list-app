@@ -41,7 +41,7 @@ export default function Header({
         <header data-event-id={event}>
             <div className='container_header'>
                 <div className='container_header-title'>
-                    <Link to={isConfirmationPage ? '/confirmation' : '/'} className="header-link">
+                    <Link className="header-link">
                         {
                             isConfirmationPage ?
                                 <>
