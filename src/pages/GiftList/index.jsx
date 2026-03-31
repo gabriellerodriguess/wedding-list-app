@@ -36,7 +36,7 @@ export default function GiftList() {
   }, [categories]);
 
   return (
-    <Layout showFooter={false} maintenance={true}>
+    <Layout showFooter={false} maintenance={false}>
       <div className="card-gift-container">
         <div className="card-gift-content">
           {gifts && gifts.length ? gifts.map((item, index) => {
