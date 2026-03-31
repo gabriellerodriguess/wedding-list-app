@@ -11,7 +11,7 @@ export default function Modal(props) {
     function updateData() {
         setLoading(true)
         if (guest === '') {
-            setLoading(false) 
+            setLoading(false)
             alert('Insira um nome.')
             return
         }
@@ -22,6 +22,18 @@ export default function Modal(props) {
                 alert('Desculpe, tente novamente.')
                 return
             }
+
+            if (props.item.name.toLowerCase().includes('pix')) {
+                api.post(`items`, {
+                    name: props.item.name,
+                    categoryId: props.item.categoryId,
+                }).then((response) => {
+                    if (response.status === 200) {
+                        console.log('deu certo!')
+                    }
+                })
+            }
+
             props.onSuccess()
             props.dispatch()
         })

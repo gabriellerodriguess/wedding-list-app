@@ -46,7 +46,7 @@ export default function Category() {
             return setItem(item)
         }
     }
-
+    
     return (
         <Layout event={'danyVic'} showFooter={true} maintenance={false}>
             {loading && <Loading type={'category'} />}
