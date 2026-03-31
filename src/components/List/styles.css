@@ -8,14 +8,19 @@
 .list_element {
     display: flex;
     align-items: center;
-    background-color: #faf0ec;
+    background-color: #d3d3d3;
     font-weight: bold;
     font-size: 14px;
     margin: 10px;
-    width: 90%;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+    justify-content: space-between;
+}
+
+.list_element >div {
+    display: flex;
+    align-items: center;
 }
 
 .list_element span {

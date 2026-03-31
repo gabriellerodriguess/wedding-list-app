@@ -8,7 +8,7 @@ export default function Home() {
     const [loading, setLoading] = useState(true)
 
     return (
-        <Layout showFooter={true} maintenance={true}>
+        <Layout event={'danyVic'} showFooter={true} maintenance={false}>
             {loading && <Loading type={'mosaic'} />}
             <div>
                 <Mosaic handleLoading={() => {

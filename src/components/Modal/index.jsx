@@ -11,6 +11,7 @@ export default function Modal(props) {
     function updateData() {
         setLoading(true)
         if (guest === '') {
+            setLoading(false) 
             alert('Insira um nome.')
             return
         }
@@ -28,9 +29,11 @@ export default function Modal(props) {
 
     return (
         <>
-            <div className="modal_container">
-                <div className="modal_confirmation">
-                    <button className="button_close" onClick={() => props.dispatch()}>
+            <div className="modal_container" onClick={() => props.dispatch()}>
+                <div className="modal_confirmation" onClick={(e) => e.stopPropagation()}>
+                    <button className="button_close" onClick={(e) => {
+                        props.dispatch()
+                    }}>
                         <SvgComponentClose />
                     </button>
                     <h3>Você escolheu seu presente!</h3>
@@ -54,9 +57,9 @@ export default function Modal(props) {
                             updateData()
                         }
                         }>
-                        {loading && ( 
+                        {loading && (
                             <div className="loading-icon">
-                                <FaSpinner className="spinner" size={12}/>
+                                <FaSpinner className="spinner" size={12} />
                             </div>
                         )}
                         Confirmar Presente

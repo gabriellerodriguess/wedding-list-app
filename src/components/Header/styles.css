@@ -6,6 +6,11 @@
    BASE
 ========================= */
 
+header {
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
 .container_svg {
     width: 100%;
 }
@@ -192,6 +197,28 @@ header[data-event-id="heitor"] .container_header::after {
 header[data-event-id="heitor"] .container_header-title a,
 header[data-event-id="heitor"] .container_header-subtitle h2 {
     color: #EEE703;
+}
+
+/* =========================
+   DANY VIC 
+========================= */
+header[data-event-id="danyVic"] .container_header {
+    background-image: url('/public/images/header-cha.svg');
+    background-size: cover;
+    height: 144px;
+}
+
+header[data-event-id="danyVic"] .container_header-title a,
+header[data-event-id="danyVic"] .container_header-subtitle h2 {
+    color: #FFFFFF;
+}
+
+header[data-event-id="danyVic"] .container_header-title a h2 {
+    font-size: 30px;
+}
+
+header[data-event-id="danyVic"] .container_header-title a small {
+    font-size: 20px;
 }
 
 /* =========================

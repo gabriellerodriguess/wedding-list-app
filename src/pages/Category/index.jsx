@@ -42,14 +42,13 @@ export default function Category() {
 
     function handleModal(item) {
         setShowModal(!showModal)
-
         if (item) {
             return setItem(item)
         }
     }
 
     return (
-        <Layout showFooter={true} maintenance={true}>
+        <Layout event={'danyVic'} showFooter={true} maintenance={false}>
             {loading && <Loading type={'category'} />}
             {!loading &&
                 <>

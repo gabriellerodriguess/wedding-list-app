@@ -1,0 +1,15 @@
+.badge {
+  border: none;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  color: #222;
+  padding: 8px !important;
+}
+
+.badge span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}

@@ -28,6 +28,7 @@
     font-weight: 700;
     text-align: center;
     color: #353535;
+    max-width: 80%;
 }
 
 .container_image img {

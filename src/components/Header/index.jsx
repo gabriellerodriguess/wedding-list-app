@@ -29,6 +29,10 @@ export default function Header({
             prefix: '1 aninho do',
             name: 'Heitor',
         },
+        danyVic: {
+            prefix: 'Danielly',
+            name: 'Victor',
+        }
     }
 
     function handleSubtitle(event) {
@@ -43,27 +47,42 @@ export default function Header({
                 <div className='container_header-title'>
                     <Link className="header-link">
                         {
-                            isConfirmationPage ?
+                            event === 'danyVic' ?
                                 <>
-                                    <h2>Confirmação</h2>
-                                    <small>de presença</small>
-                                </>
-                                :
-                                <>
-                                    <h1>Lista</h1>
-                                    <small>de convidados</small>
-                                </>
+                                    <h2>Chá</h2>
+                                    <small>de panela</small>
+                                </> :
+                                isConfirmationPage ?
+                                    <>
+                                        <h2>Confirmação</h2>
+                                        <small>de presença</small>
+                                    </>
+                                    :
+                                    <>
+                                        <h1>Lista</h1>
+                                        <small>de convidados</small>
+                                    </>
                         }
                     </Link>
                 </div>
 
                 <div className='container_header-subtitle'>
                     {subtitle && (
-                        <h2>
-                            {subtitle.prefix}
-                            <br />
-                            {subtitle.name}
-                        </h2>
+                        event === 'danyVic' ?
+
+                            <h2>
+                                {subtitle.prefix}
+                                <br />
+                                    &
+                                <br />
+                                {subtitle.name}
+                            </h2>
+                            :
+                            <h2>
+                                {subtitle.prefix}
+                                <br />
+                                {subtitle.name}
+                            </h2>
                     )}
                 </div>
             </div>
