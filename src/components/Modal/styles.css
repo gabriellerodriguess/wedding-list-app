@@ -112,6 +112,12 @@
     text-decoration: underline;
 }
 
+.button_modal.primary.event_id--kennya {
+    background: #c4050c;
+    color: #FFF;
+}
+
+
 .button_modal.primary.event_id--sara {
     background: #13099F;
     color: #ffd700;

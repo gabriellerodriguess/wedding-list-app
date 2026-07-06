@@ -32,6 +32,10 @@ export default function Header({
         danyVic: {
             prefix: 'Danielly',
             name: 'Victor',
+        },
+        kennya: {
+            prefix: '',
+            name: '',
         }
     }
 

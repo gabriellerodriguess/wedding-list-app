@@ -222,6 +222,20 @@ header[data-event-id="danyVic"] .container_header-title a small {
 }
 
 /* =========================
+   KENNYA
+========================= */
+
+header[data-event-id="kennya"] .container_header {
+    background-image: url('/public/images/header-heitor.svg');
+    background-size: auto;
+}
+
+header[data-event-id="kennya"] .container_header-title a,
+header[data-event-id="kennya"] .container_header-subtitle h2 {
+    color: #FFF;
+}
+
+/* =========================
    RESPONSIVO
 ========================= */
 

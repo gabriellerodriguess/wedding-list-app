@@ -8,6 +8,7 @@ import { FaChildren, FaPerson } from "react-icons/fa6"
 import SvgComponentClose from '../../assets/SvgComponentClose'
 import ToastMessage from '../../components/ToastMessage'
 import { urlParamsFormatted } from '../../utils/searchParams'
+import { getInvitationSettings } from '../../utils/invitation'
 import './styles.css'
 
 const GuestConfirmation = () => {
@@ -31,10 +32,15 @@ const GuestConfirmation = () => {
   const [guestAlreadyExists, setGuestAlreadyExists] = useState(false)
   const [modalConfig, setModalConfig] = useState({ open: false, action: null })
   const [accessForm, setAccessForm] = useState(false)
+  const invitationSettings = getInvitationSettings(window.location.search)
 
   const handleChange = (e) => {
     const { name, value } = e.target
     const formattedValue = (name === 'adult' || name === 'children') ? Number(value) : value;
+
+    if (invitationSettings.isControlled && (name === 'adult' || name === 'children')) {
+      return;
+    }
 
     if (name === 'on') {
       setFormData(prev => ({ ...prev, on: true, off: false }));
@@ -71,6 +77,7 @@ const GuestConfirmation = () => {
     e.preventDefault();
     setLoading(true);
     const registeredGuests = JSON.parse(localStorage.getItem("registeredGuests")) || []
+    console.log(urlParamsFormatted, `urlParamsFormatted`)
     const eventId = urlParamsFormatted
     const guestIndex = registeredGuests ? registeredGuests.findIndex(guest => String(guest.event_id) === String(eventId)) : null
 
@@ -162,7 +169,7 @@ const GuestConfirmation = () => {
 
   useEffect(() => {
     const registeredGuests = JSON.parse(localStorage.getItem("registeredGuests")) || [];
-    const eventId = window.location.search.replace('?event_id=', '')
+    const eventId = invitationSettings.eventId
 
     if (!registeredGuests.length) return
 
@@ -173,7 +180,17 @@ const GuestConfirmation = () => {
       setFormData(guestFilterByEventId)
     }
 
-  }, [])
+  }, [invitationSettings.eventId])
+
+  useEffect(() => {
+    if (invitationSettings.isControlled) {
+      setFormData((prev) => ({
+        ...prev,
+        adult: invitationSettings.adult,
+        children: invitationSettings.children,
+      }))
+    }
+  }, [invitationSettings.adult, invitationSettings.children, invitationSettings.isControlled])
 
   return (
     <Layout isConfirmationPage={true} maintenance={false} event={urlParamsFormatted}>
@@ -236,6 +253,7 @@ const GuestConfirmation = () => {
                       value={formData.adult}
                       onChange={handleChange}
                       className='form-select w-auto'
+                      disabled={invitationSettings.isControlled}
                     >
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -263,6 +281,7 @@ const GuestConfirmation = () => {
                       value={formData.children}
                       onChange={handleChange}
                       className='form-select w-auto'
+                      disabled={invitationSettings.isControlled}
                     >
                       <option value="">0</option>
                       <option value="1">1</option>
