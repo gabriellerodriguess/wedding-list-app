@@ -183,14 +183,17 @@ const GuestConfirmation = () => {
   }, [invitationSettings.eventId])
 
   useEffect(() => {
-    if (invitationSettings.isControlled) {
-      setFormData((prev) => ({
-        ...prev,
-        adult: invitationSettings.adult,
-        children: invitationSettings.children,
-      }))
-    }
-  }, [invitationSettings.adult, invitationSettings.children, invitationSettings.isControlled])
+    const nextName = invitationSettings.name || ''
+    const nextPhone = invitationSettings.phone || ''
+
+    setFormData((prev) => ({
+      ...prev,
+      name: nextName || prev.name,
+      phone: nextPhone || prev.phone,
+      adult: invitationSettings.isControlled ? invitationSettings.adult : prev.adult,
+      children: invitationSettings.isControlled ? invitationSettings.children : prev.children,
+    }))
+  }, [invitationSettings.name, invitationSettings.phone, invitationSettings.adult, invitationSettings.children, invitationSettings.isControlled])
 
   return (
     <Layout isConfirmationPage={true} maintenance={false} event={urlParamsFormatted}>

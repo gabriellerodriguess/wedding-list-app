@@ -3,21 +3,27 @@ export const getInvitationSettings = (search = window.location.search) => {
   const eventId = params.get('event_id') || ''
   const adult = Number(params.get('adult') || 1)
   const children = Number(params.get('children') || 0)
+  const name = params.get('name') || ''
+  const phone = params.get('phone') || ''
   const hasControlledValues = params.has('adult') || params.has('children')
 
   return {
     eventId,
     adult: Number.isNaN(adult) ? 1 : adult,
     children: Number.isNaN(children) ? 0 : children,
+    name,
+    phone,
     isControlled: hasControlledValues,
   }
 }
 
-export const buildInvitationLink = ({ eventId = 'casamento', adult = 1, children = 0, origin = window.location.origin, basePath = process.env.PUBLIC_URL || '' }) => {
+export const buildInvitationLink = ({ eventId = '', adult = 1, children = 0, name = '', phone = '', origin = window.location.origin, basePath = process.env.PUBLIC_URL || '' }) => {
   const params = new URLSearchParams({
     event_id: eventId,
     adult: String(adult),
     children: String(children),
+    name: String(name),
+    phone: String(phone)
   })
 
   return `${origin}${basePath}/confirmation?${params.toString()}`

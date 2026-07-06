@@ -53,6 +53,8 @@ const AdminInvitation = () => {
       eventId: formData.eventId,
       adult: Number(formData.adult || 1),
       children: Number(formData.children || 0),
+      name: String(formData.name),
+      phone: String(formData.phone)
     })
 
     setGeneratedLink(invitation)

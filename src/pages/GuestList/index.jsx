@@ -12,6 +12,8 @@ const GuestList = () => {
   const [adultsOn, setAdultsOn] = useState(0)
   const [childrenOn, setChildrenOn] = useState(0)
 
+  console.log(urlParams, 'urlParams')
+  
   function getAllGuests() {
     api.get(`/guests${urlParams}`)
       .then((response) => {
