@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useState } from 'react'
 import Layout from '../../components/Layout'
 import InputMask from 'react-input-mask'
 import { FaCopy, FaWhatsapp } from 'react-icons/fa'
@@ -20,9 +20,8 @@ const AdminInvitation = () => {
     eventId: 'kennya',
   })
   const [generatedLink, setGeneratedLink] = useState('')
+  const [isLinkModalOpen, setIsLinkModalOpen] = useState(false)
   const [error, setError] = useState('')
-
-  const previewLink = useMemo(() => generatedLink, [generatedLink])
 
   const handleLogin = (event) => {
     event.preventDefault()
@@ -58,6 +57,24 @@ const AdminInvitation = () => {
     })
 
     setGeneratedLink(invitation)
+    setIsLinkModalOpen(true)
+    setError('')
+  }
+
+  const handleCopyLink = () => {
+    if (!generatedLink) {
+      return
+    }
+
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(generatedLink).catch(() => {})
+    }
+  }
+
+  const handleGenerateNewLink = (event) => {
+    event.preventDefault()
+    setIsLinkModalOpen(false)
+    setGeneratedLink('')
     setError('')
   }
 
@@ -83,6 +100,8 @@ const AdminInvitation = () => {
   const handleLogout = () => {
     localStorage.removeItem(ADMIN_STORAGE_KEY)
     setIsAuthenticated(false)
+    setIsLinkModalOpen(false)
+    setGeneratedLink('')
     setLoginData({ email: '', password: '' })
   }
 
@@ -178,17 +197,24 @@ const AdminInvitation = () => {
               <button type="submit" className="button_modal primary">Gerar link</button>
             </form>
 
-            {previewLink && (
-              <div className="adminInvitationPreview">
-                <label htmlFor="generatedLink">Link gerado</label>
-                <input id="generatedLink" value={previewLink} readOnly />
-                <div className="adminInvitationActions">
-                  <button type="button" className="button_modal secondary" onClick={() => navigator.clipboard.writeText(previewLink)}>
-                    <FaCopy /> Copiar link
-                  </button>
-                  <button type="button" className="button_modal primary" onClick={handleSendWhatsApp}>
-                    <FaWhatsapp /> Enviar pro WhatsApp
-                  </button>
+            {isLinkModalOpen && generatedLink && (
+              <div className="adminInvitationModalOverlay" onClick={() => setIsLinkModalOpen(false)}>
+                <div className="adminInvitationModal" role="dialog" aria-modal="true" aria-labelledby="generated-link-title" onClick={(event) => event.stopPropagation()}>
+                  <div className="adminInvitationModalHeader">
+                    <h3 id="generated-link-title">Link gerado</h3>
+                    <button type="button" className="adminInvitationModalClose" onClick={() => setIsLinkModalOpen(false)} aria-label="Fechar modal">×</button>
+                  </div>
+                  <p>Copie o link abaixo ou envie diretamente para o WhatsApp.</p>
+                  <label htmlFor="generatedLink">Link gerado</label>
+                  <input id="generatedLink" value={generatedLink} readOnly />
+                  <div className="adminInvitationActions">
+                    <button type="button" className="button_modal secondary" onClick={handleCopyLink}>
+                      <FaCopy /> Copiar link
+                    </button>
+                    <button type="button" className="button_modal primary" onClick={handleSendWhatsApp}>
+                      <FaWhatsapp /> Enviar pro WhatsApp
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
