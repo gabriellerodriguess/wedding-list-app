@@ -140,6 +140,11 @@
     color: #EEE703;
 }
 
+.button_modal.primary.event_id--isaac {
+    background-color: #91B8E8;
+    color: #ffffffff;
+}
+
 .button_modal:disabled {
     pointer-events: none;
 }

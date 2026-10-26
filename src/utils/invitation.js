@@ -29,9 +29,20 @@ export const buildInvitationLink = ({ eventId = '', adult = 1, children = 0, nam
   return `${origin}${basePath}/confirmation?${params.toString()}`
 }
 
-export const getWhatsAppMessage = ({ name = '', link = '' }) => {
+export const getWhatsAppMessageParts = ({ name = '', link = '' }) => {
   const greeting = name && name.trim() ? name.trim() : ''
-  return `${greeting ? `Olá ${greeting}!` : ''}\n\n🎉 É com imensa alegria que convido você para celebrar os 48 anos da Kennya! ❤️\n\nMas atenção... 🤫 é uma festa surpresa! Então, por favor, não conte nada para ela e nos ajude a manter esse segredo.\n\nSua presença é muito importante para tornar esse momento ainda mais especial!\n\nConfirme sua presença pelo link abaixo:\n\n${link}`
+
+  return {
+    header: `${greeting ? `Olá ${greeting}! 🎉` : ''}`,
+    footer: `Confirme sua presença pelo link abaixo:\n\n${link}`,
+  }
+}
+
+export const getWhatsAppMessage = ({ name = '', link = '', customText = '' }) => {
+  const { header, footer } = getWhatsAppMessageParts({ name, link })
+  const text = customText.trim()
+
+  return `${header}${text ? ` ${text}` : ''}\n\n${footer}`
 }
 
 export const normalizePhone = (phone = '') => {

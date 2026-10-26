@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Layout from '../../components/Layout'
 import InputMask from 'react-input-mask'
-import { FaCopy, FaWhatsapp } from 'react-icons/fa'
-import { buildInvitationLink, getWhatsAppMessage, normalizePhone } from '../../utils/invitation'
+import { FaCheckCircle, FaCopy, FaWhatsapp } from 'react-icons/fa'
+import { buildInvitationLink, getWhatsAppMessage, getWhatsAppMessageParts, normalizePhone } from '../../utils/invitation'
 import './styles.css'
 
 const ADMIN_STORAGE_KEY = 'adminInvitationAuthenticated'
@@ -17,11 +17,14 @@ const AdminInvitation = () => {
     phone: '',
     adult: 1,
     children: 0,
-    eventId: 'kennya',
+    eventId: 'isaac',
   })
   const [generatedLink, setGeneratedLink] = useState('')
   const [isLinkModalOpen, setIsLinkModalOpen] = useState(false)
+  const [isInvitationSent, setIsInvitationSent] = useState(false)
+  const [customMessage, setCustomMessage] = useState('')
   const [error, setError] = useState('')
+  const customMessageRef = useRef(null)
 
   const handleLogin = (event) => {
     event.preventDefault()
@@ -42,6 +45,11 @@ const AdminInvitation = () => {
   const handleGenerate = (event) => {
     event.preventDefault()
 
+    if (!formData.name.trim()) {
+      setError('Informe o nome do convidado para gerar o convite.')
+      return
+    }
+
     const phone = normalizePhone(formData.phone)
     if (!phone) {
       setError('Informe um telefone para gerar o convite.')
@@ -57,6 +65,7 @@ const AdminInvitation = () => {
     })
 
     setGeneratedLink(invitation)
+    setIsInvitationSent(false)
     setIsLinkModalOpen(true)
     setError('')
   }
@@ -87,15 +96,26 @@ const AdminInvitation = () => {
     }
 
     const phone = normalizePhone(formData.phone)
-    const message = getWhatsAppMessage({ name: formData.name, link: generatedLink })
-    const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`
+    const message = getWhatsAppMessage({ name: formData.name, link: generatedLink, customText: customMessage })
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
 
     window.open(url, '_blank', 'noopener,noreferrer')
 
     if (navigator.clipboard?.writeText) {
       navigator.clipboard.writeText(message).catch(() => {})
     }
+
+    setIsInvitationSent(true)
+    setError('')
   }
+
+  const handleCustomMessageChange = (event) => {
+    event.target.style.height = 'auto'
+    event.target.style.height = `${event.target.scrollHeight}px`
+    setCustomMessage(event.target.value)
+  }
+
+  const messageParts = getWhatsAppMessageParts({ name: formData.name, link: generatedLink })
 
   const handleLogout = () => {
     localStorage.removeItem(ADMIN_STORAGE_KEY)
@@ -205,8 +225,27 @@ const AdminInvitation = () => {
                     <button type="button" className="adminInvitationModalClose" onClick={() => setIsLinkModalOpen(false)} aria-label="Fechar modal">×</button>
                   </div>
                   <p>Copie o link abaixo ou envie diretamente para o WhatsApp.</p>
-                  <label htmlFor="generatedLink">Link gerado</label>
-                  <input id="generatedLink" value={generatedLink} readOnly />
+                  <label htmlFor="customMessage">Mensagem do WhatsApp</label>
+                  <div className="adminInvitationMessage" onClick={() => customMessageRef.current?.focus()}>
+                    <div className="adminInvitationMessageFixed">{messageParts.header}</div>
+                    <textarea
+                      id="customMessage"
+                      ref={customMessageRef}
+                      rows={3}
+                      value={customMessage}
+                      onChange={handleCustomMessageChange}
+                      placeholder="Escreva aqui sua mensagem personalizada..."
+                    />
+                    <div className="adminInvitationMessageFixed">{messageParts.footer}</div>
+                  </div>
+                  {isInvitationSent && (
+                    <div className="adminInvitationSuccess" role="status">
+                      <FaCheckCircle className="adminInvitationSuccessIcon" />
+                      <div>
+                        <strong>Convite enviado!</strong>
+                      </div>
+                    </div>
+                  )}
                   <div className="adminInvitationActions">
                     <button type="button" className="button_modal secondary" onClick={handleCopyLink}>
                       <FaCopy /> Copiar link

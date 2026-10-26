@@ -13,30 +13,10 @@ export default function Header({
     }
 
     const EVENT_CONFIG = {
-        hellena: {
-            prefix: 'Chá da',
-            name: 'Hellena',
+           isaac: {
+            prefix: 'Isaac',
+            name: '1 aninho',
         },
-        sara: {
-            prefix: '15 anos da',
-            name: 'Sara',
-        },
-        isaac: {
-            prefix: 'Chá do',
-            name: 'Isaac',
-        },
-        heitor: {
-            prefix: '1 aninho do',
-            name: 'Heitor',
-        },
-        danyVic: {
-            prefix: 'Danielly',
-            name: 'Victor',
-        },
-        kennya: {
-            prefix: '',
-            name: '',
-        }
     }
 
     function handleSubtitle(event) {

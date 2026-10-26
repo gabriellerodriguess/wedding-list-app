@@ -53,6 +53,52 @@
   font-size: 14px;
 }
 
+.adminInvitationSuccess {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #a5d6a7;
+  border-left: 4px solid #2e7d32;
+  background: #e8f5e9;
+  color: #1b5e20;
+  animation: adminInvitationSuccessIn 0.25s ease-out;
+}
+
+.adminInvitationSuccessIcon {
+  flex-shrink: 0;
+  font-size: 22px;
+  color: #2e7d32;
+  margin-top: 1px;
+}
+
+.adminInvitationSuccess div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.adminInvitationSuccess strong {
+  font-size: 16px;
+}
+
+.adminInvitationSuccess span {
+  font-size: 14px;
+  color: #2e5e31;
+}
+
+@keyframes adminInvitationSuccessIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .adminInvitationModalOverlay {
   position: fixed;
   inset: 0;
@@ -98,6 +144,42 @@
 .adminInvitationModal p {
   margin: 0;
   color: #666;
+}
+
+.adminInvitationMessage {
+  border: 1px solid #d7d7d7;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 16px;
+  line-height: 1.4;
+  cursor: text;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.adminInvitationMessage:focus-within {
+  border-color: #b24b6f;
+}
+
+.adminInvitationMessageFixed {
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #888;
+  user-select: none;
+}
+
+.adminInvitationMessage textarea {
+  display: block;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 4px 0;
+  margin: 4px 0;
+  font: inherit;
+  line-height: inherit;
+  background: transparent;
+  overflow: hidden;
 }
 
 .adminInvitationActions {
