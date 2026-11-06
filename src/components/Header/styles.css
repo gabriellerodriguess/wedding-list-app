@@ -82,27 +82,27 @@ header {
 ========================= */
 
 header[data-event-id="isaac"] .container_header {
-    background-image: url('/public/images/header-isaac.png');
+    background-image: url('/public/images/header-isaac.svg');
     background-size: auto;
 }
 
 header[data-event-id="isaac"] .container_header::after {
     content: '';
     display: block;
-    width: 150px;
-    height: 160px;
-    background-image: url('/public/images/isaac.png');
+    width: 115px;
+    height: 115px;
+    background-image: url('/public/images/isaac2.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    bottom: -25px;
-    right: 24%;
+    bottom: 4px;
+    right: 30%;
 }
 
 header[data-event-id="isaac"] .container_header-title a,
 header[data-event-id="isaac"] .container_header-subtitle h2 { 
-    color: #393D86;
+    color: #3B5405;
 }
 
 

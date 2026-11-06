@@ -42,7 +42,7 @@ export const getWhatsAppMessage = ({ name = '', link = '', customText = '' }) =>
   const { header, footer } = getWhatsAppMessageParts({ name, link })
   const text = customText.trim()
 
-  return `${header}${text ? ` ${text}` : ''}\n\n${footer}`
+  return [header, text, footer].filter(Boolean).join('\n\n')
 }
 
 export const normalizePhone = (phone = '') => {
